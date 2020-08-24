@@ -1,11 +1,15 @@
+//server Dependencies
 var http = require("http");
 var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
-//database access with connect
-const { connect } = require("./database/mongoDatabase");
+
+//server creation
 var router = express();
 var server = http.createServer(router);
+
+//database access with connect
+const { connect } = require("./database/mongoDatabase");
 
 //middleware
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -27,7 +31,7 @@ if (process.env.NODE_ENV !== "test") {
         "Ready server is running go to ",
         addr.address + ":" + addr.port
       );
-      connect();
+      connect(); //connect database
     }
   );
 }

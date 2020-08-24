@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 //autofi Schema
-const AutoFiSchema = new Schema({
+const AutoSchema = new Schema({
   Provider: { type: String, required: true },
   UUID: { type: String, required: true },
   VIN: { type: String, required: true },
@@ -17,4 +17,4 @@ const AutoFiSchema = new Schema({
 });
 
 // autofi Model and export
-module.exports = mongoose.model("autofi", AutoFiSchema);
+module.exports = mongoose.model("autofi", AutoSchema);

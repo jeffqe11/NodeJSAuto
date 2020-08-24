@@ -4,12 +4,14 @@ const Auto = require("../../models/AutoFi");
 //read csv file and turn into json
 const csv = require("csvtojson");
 
+//list all autos
 exports.auto_list = function (req, res) {
-  Auto.find({}, (err, result) => {
-    res.send(result);
+  Auto.find({}, (err, autos) => {
+    res.send(autos);
   });
 };
 
+//save all autos given csv and provider
 exports.auto_save_all = async function (req, res) {
   try {
     const csvFile = req.file.buffer.toString();

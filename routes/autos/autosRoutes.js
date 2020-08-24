@@ -1,15 +1,14 @@
 var multer = require("multer");
 var upload = multer();
 
-//controller auto
+//controller auto actions
 const {
   auto_list,
   auto_save_all,
 } = require("../../controllers/autos/autosControllers");
 
+//Auto_ROUTES
 module.exports = function (router) {
-  //API_ROUTES
-
   //list all autos available in database
   router.get("/api/autos", (req, res) => {
     auto_list(req, res);
