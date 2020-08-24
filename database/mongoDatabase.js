@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
-const mongod = new MongoMemoryServer();
+const memoryServer = new MongoMemoryServer();
 
 //connect to database local with mongodb-memory-server
 module.exports.connect = async () => {
-  const uri = await mongod.getConnectionString();
+  const uri = await memoryServer.getConnectionString();
 
   const mongooseOpts = {
     useNewUrlParser: true,
@@ -18,5 +18,5 @@ module.exports.connect = async () => {
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongod.stop();
+  await memoryServer.stop();
 };

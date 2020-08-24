@@ -1,9 +1,9 @@
 //validate form with jquery.validation library
+var form = $("#formAutoFi");
 jQuery.validator.setDefaults({
   debug: true,
   success: "valid",
 });
-var form = $("#2020data");
 form.validate({
   rules: {
     csvFile: {
@@ -17,14 +17,13 @@ form.validate({
 $(".custom-file-input").on("change", function () {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-
   if (this.files.length > 0) {
     $("#uploadButton").prop("disabled", false);
   }
 });
 
 //when form submit, send data to /api/autos with csv and provider name
-$("#2020data").submit(function (e) {
+$("#formAutoFi").submit(function (e) {
   //only send data if form is correct
 
   var formCSV = this;
@@ -37,7 +36,7 @@ $("#2020data").submit(function (e) {
       data: new FormData(this),
       processData: false,
       contentType: false,
-      success: function (data) {
+      success: function () {
         //when the server return success
         $.notify("Sucess!! go to /api/autos to see results.", "success");
         //reset and clean form  to start again
@@ -47,7 +46,7 @@ $("#2020data").submit(function (e) {
           .html("");
         formCSV.reset();
       },
-      error: function (jqXHR, textStatus, errorThrown) {
+      error: function () {
         //in case of error
         $.notify("Error, please try again, verify your file data.");
       },

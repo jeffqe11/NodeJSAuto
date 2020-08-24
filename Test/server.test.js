@@ -36,6 +36,7 @@ describe("Auto", function () {
 });
 
 var auto = {
+  Provider: "test",
   UUID: "1",
   VIN: "02-595-4873",
   Make: "Volkswagen",

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 //autofi Schema
 const AutoFiSchema = new Schema({
+  Provider: { type: String, required: true },
   UUID: { type: String, required: true },
   VIN: { type: String, required: true },
   Make: { type: String, required: true },

@@ -24,7 +24,7 @@ describe("Autos Api", () => {
     await request(app)
       .post("/api/autos")
 
-      .attach("csvFile", "./Test/MOCK_DATA_SUCCESS.csv")
+      .attach("csvFile", "./test/MOCK_DATA_SUCCESS.csv")
       .field({ provider: "test" })
       .expect(200);
   });
@@ -33,7 +33,7 @@ describe("Autos Api", () => {
     await request(app)
       .post("/api/autos")
 
-      .attach("csvFile", "./Test/MOCK_DATA_ERROR.csv")
+      .attach("csvFile", "./test/MOCK_DATA_ERROR.csv")
       .field({ provider: "test" })
       .expect(500);
   });
